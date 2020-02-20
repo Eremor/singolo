@@ -68,6 +68,18 @@ a {
   box-sizing: border-box;
 }
 
+.section-title {
+  margin: 0;
+  padding: 0;
+
+  font-size: 30px;
+  line-height: 17.86px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: #666d89;
+  letter-spacing: -0.2px;
+}
+
 .page-header {
   background-color: #2d303a;
   border-bottom: 6px solid #323746;
@@ -258,4 +270,120 @@ a {
   right: 40px;
 
   transform: rotate(180deg);
+}
+
+.services {
+  background-color: #f2f2f2;
+  border-bottom: 6px solid #ffffff;
+}
+
+.services .wrapper {
+  padding-top: 69px;
+  padding-bottom: 29px;
+}
+
+.services .section-title {
+  margin-bottom: 27px;
+}
+
+.services-text {
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: -0.070332px;
+}
+
+.services-text span {
+  letter-spacing: -0.225px;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-top: 46px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.services-item {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 33px;
+  padding-left: 80px;
+  width: 219px;
+}
+
+.services-item::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+
+  width: 55px;
+  height: 55px;
+
+  border: 2px solid #666d89;
+  border-radius: 50%;
+}
+
+.services-item:nth-child(2),
+.services-item:nth-child(5) {
+  margin-right: 23px;
+}
+
+.services-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.services-item:first-child::before {
+  background: url("assets/img/services-pen.png") center no-repeat;
+}
+
+.services-item:nth-child(2)::before {
+  background: url("assets/img/services-idea.png") 17px 11px no-repeat;
+}
+
+.services-item:nth-child(3)::before {
+  left: -1px;
+  background: url("assets/img/services-heart.png") center no-repeat;
+}
+
+.services-item:nth-child(4)::before {
+  background: url("assets/img/services-phone.png") center no-repeat;
+}
+
+.services-item:nth-child(5)::before {
+  background: url("assets/img/services-message.png") center no-repeat;
+}
+
+.services-item:last-child::before {
+  left: -1px;
+  background: url("assets/img/services-star.png") center no-repeat;
+}
+
+.services-item-title {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 17.86px;
+  font-weight: 900;
+  text-transform: capitalize;
+  letter-spacing: -0.1px;
+  color: #666d89;
+}
+
+.services-item-text {
+  margin: 0;
+  padding: 0;
+  max-height: 63px;
+
+  text-align: justify;
+  overflow: hidden;
 }
