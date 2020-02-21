@@ -63,8 +63,8 @@ a {
 
 .wrapper {
   margin: 0 auto;
-  padding: 0 40px;
-  width: 1020px;
+  padding: 0;
+  width: 940px;
   box-sizing: border-box;
 }
 
@@ -177,13 +177,13 @@ a {
 .phone-vertical {
   position: absolute;
   top: 53px;
-  left: 112px;
+  left: 72px;
 }
 
 .phone-horizontal {
   position: absolute;
   top: 174px;
-  right: 137px;
+  right: 97px;
 
   transform: rotate(90deg);
 }
@@ -263,11 +263,11 @@ a {
 }
 
 .arrow-left {
-  left: 42px;
+  left: 2px;
 }
 
 .arrow-right {
-  right: 40px;
+  right: 0;
 
   transform: rotate(180deg);
 }
