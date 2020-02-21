@@ -153,14 +153,6 @@ a {
 }
 
 .main-nav-item a:hover {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.main-nav-item .active {
-  color: #f06c64;
-}
-
-.main-nav .active:hover {
   color: #f06c64;
 }
 
