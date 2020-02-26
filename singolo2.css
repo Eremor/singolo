@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}
+
+body {
+  min-width: 1020px;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 21.56px;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: #767e9e;
+
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 940px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 0;
+  padding: 0;
+
+  font-size: 30px;
+  line-height: 17.86px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: #666d89;
+  letter-spacing: -0.2px;
+}
