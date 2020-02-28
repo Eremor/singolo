@@ -1,0 +1,294 @@
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("assets/fonts/Lato-Black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900;
+}
+
+body {
+  min-width: 1020px;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 21.56px;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: #767e9e;
+
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: 940px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 0;
+  padding: 0;
+
+  font-size: 30px;
+  line-height: 17.86px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: #666d89;
+  letter-spacing: -0.2px;
+}
+
+.section-description {
+  margin: 0;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: -0.22px;
+  text-align: justify;
+  color: #767e9e;
+}
+
+.portfolio {
+  background-color: #2d303a;
+  border-bottom: 6px solid #323746;
+}
+
+.portfolio .wrapper {
+  padding-top: 70px;
+  padding-bottom: 67px;
+}
+
+.portfolio .section-title {
+  margin-bottom: 27px;
+}
+
+.portfolio .section-description {
+  margin-bottom: 11px;
+  
+  color: #767e9e;
+}
+
+.tag-list {
+  margin-left: 1px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  margin: 0;
+  margin-right: 8px;
+  padding: 2px 7px 3px 6px;
+
+  font-size: 12px;
+  line-height: 21.56px;
+  text-transform: capitalize;
+  color: #767e9e;
+
+  border: 1px solid #767e9e;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.tag:nth-child(2) {
+  padding-right: 6px;
+  margin-right: 8px;
+}
+
+.tag:nth-child(3) {
+  margin-right: 7px;
+  padding-left: 5px;
+  padding-right: 6px;
+}
+
+.tag:nth-child(4) {
+  padding-right: 4px;
+}
+
+.tag-active {
+  color: #dedede;
+  border-color: #dedede;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 601px;
+  overflow: hidden;
+}
+
+.portfolio-item {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 220px;
+  height: 187px;
+}
+
+.portfolio-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.team {
+  background-color: #f2f2f2;
+  border-bottom: 6px solid #ffffff;
+}
+
+.team .wrapper {
+  padding-top: 69px;
+  padding-bottom: 65px;
+}
+
+.team .section-title {
+  margin-bottom: 27px;
+}
+
+.team .section-description {
+  margin-bottom: 45px;
+}
+
+.team-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  list-style: none;
+}
+
+.team-item {
+  margin-right: 19px;
+  max-width: 300px;
+}
+
+.team-item:nth-child(2) {
+  margin-right: 21px;
+}
+
+.team-item:last-child {
+  margin-right: 0;
+}
+
+.team-img {
+  margin-bottom: 12px;
+  width: 300px;
+  height: 300px;
+}
+
+.team-name {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+
+  font-size: 18px;
+  line-height: 17.86px;
+  font-weight: 900;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+.team-text {
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 21.46px;
+  text-align: justify;
+}
+
+.team-item:first-child .team-text {
+  letter-spacing: -0.06px;
+}
+
+.social-list {
+  margin: 0;
+  margin-left: 1px;
+  padding: 0;
+  display: flex;
+
+  list-style: none;
+}
+
+.social-item {
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #69708b;
+  border-radius: 50%;
+}
+
+.social-item:hover {
+  transform: scale(1.1);
+}
+
+.social-item a {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.team-item:last-child .social-list {
+  margin-left: 0;
+}
+
+.social-fb {
+  background: url("./assets/img/icon-fb.png") center no-repeat;
+}
+
+.social-gp {
+  background: url("./assets/img/icon-gp.png") center no-repeat;
+}
+
+.social-tw{
+  background: url("./assets/img/icon-tw.png") center no-repeat;
+}
+
+.social-in{
+  background: url("./assets/img/icon-in.png") center no-repeat;
+}
