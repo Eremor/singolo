@@ -57,7 +57,7 @@ a {
   white-space: nowrap;
 
   clip-path: inset(100%);
-  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
 
@@ -251,4 +251,74 @@ a {
   top: 6px;
 
   background: url("assets/img/icon-mail.png") center no-repeat;
+}
+
+.page-footer {
+  background-color: #2d303a;
+}
+
+.page-footer .wrapper {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copyright {
+  margin: 0;
+  margin-top: 8px;
+  margin-left: 1px;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 16px;
+  color: #666d89;
+}
+
+.social-list {
+  margin: 0;
+  margin-left: 1px;
+  padding: 0;
+  display: flex;
+
+  list-style: none;
+}
+
+.social-item {
+  margin-left: 8px;
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #69708b;
+  border-radius: 50%;
+}
+
+.social-item:hover {
+  transform: scale(1.1);
+}
+
+.social-item a {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.team-item:last-child .social-list {
+  margin-left: 0;
+}
+
+.social-fb {
+  background: url("./assets/img/icon-fb.png") center no-repeat;
+}
+
+.social-gp {
+  background: url("./assets/img/icon-gp.png") center no-repeat;
+}
+
+.social-tw{
+  background: url("./assets/img/icon-tw.png") center no-repeat;
+}
+
+.social-in{
+  background: url("./assets/img/icon-in.png") center no-repeat;
 }
