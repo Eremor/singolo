@@ -93,8 +93,22 @@ a {
 }
 
 .page-header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+
+  width: 100%;
+
   background-color: #2d303a;
   border-bottom: 6px solid #323746;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 45px;
+  margin: -89px 0 0;
+  visibility: hidden;
 }
 
 .page-header .wrapper {
@@ -168,7 +182,13 @@ a {
   color: #f06c64;
 }
 
+.active-menu a {
+  color: #f06c64;
+}
+
 .slider {
+  margin-top: 90px;
+
   background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
 }
