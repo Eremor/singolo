@@ -1,4 +1,8 @@
 const MENU = document.querySelector('.main-nav');
+const ARROW_LEFT = document.querySelector('.arrow-left');
+const ARROW_RIGHT = document.querySelector('.arrow-right');
+
+let counter = 0;
 
 MENU.addEventListener('click', (event) => {
     MENU.querySelectorAll('.main-nav-item').forEach(item => item.classList.remove('active-menu'));
@@ -24,3 +28,30 @@ MENU.addEventListener('click', (event) => {
     }
 });
 
+ARROW_LEFT.addEventListener('click', () => {
+    let interval = setInterval(() => {
+        document.querySelectorAll('.slider-item').forEach((item) => {
+            if(item.style.left === '0px') {
+                clearInterval(interval);
+                return;
+            }
+
+            counter += 1;
+            item.style.left = `${counter}px`;
+        });
+    }, 5);
+});
+
+ARROW_RIGHT.addEventListener('click', () => {
+    let interval = setInterval(() => {
+        document.querySelectorAll('.slider-item').forEach((item) => {
+            if(item.style.left === '-940px') {
+                clearInterval(interval);
+                return;
+            }
+
+            counter -= 1;
+            item.style.left = `${counter}px`;
+        });
+    }, 5);
+});

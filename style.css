@@ -187,7 +187,16 @@ a {
 
 .slider .wrapper {
   position: relative;
+  display: flex;
   min-height: 594px;
+
+  overflow: hidden;
+}
+
+.slider-item {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .phone-vertical {
@@ -258,9 +267,36 @@ a {
   transform: rotateY(180deg);
 }
 
+.slider-item:nth-child(2) .phone-vertical {
+  left: 343px;
+  top: 43px;
+
+  transform: scale(1.06);
+}
+
+.phone-filter .phone-img {
+  background-image: url("assets/img/phone-bg3.jpg");
+}
+
+.slider-item:nth-child(2) .phone-small {
+  top: 152px;
+
+  transform: scale(0.65);
+  opacity: 0.5;
+}
+
+.slider-item:nth-child(2) .phone-small:first-child {
+  left: 213px;
+}
+
+.slider-item:nth-child(2) .phone-small:last-child {
+  left: 571px;
+}
+
 .arrow {
   position: absolute;
   top: 281px;
+  z-index: 20;
 
   margin: 0;
   padding: 0;
