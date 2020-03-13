@@ -65,9 +65,12 @@ TAGS.addEventListener('click', (event) => {
     event.target.classList.add('tag-active');
 
     if(event) {
+        let random = getRandomInt(1, 13);
+        let index = random;
+
         document.querySelectorAll('.portfolio-item img').forEach(item => {
-            let random = getRandomInt(1, 13);
-            item.src = `assets/img/portfolio${random}.jpg`;
+            item.src = `assets/img/portfolio${index}.jpg`;
+            index == 12 ? index = 1 : index++ ;
         });
     }
 });
