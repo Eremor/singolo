@@ -1,4 +1,5 @@
 const MENU = document.querySelector('.main-nav');
+const TAGS = document.querySelector('.tag-list');
 const ARROW_LEFT = document.querySelector('.arrow-left');
 const ARROW_RIGHT = document.querySelector('.arrow-right');
 
@@ -30,7 +31,7 @@ MENU.addEventListener('click', (event) => {
 
 ARROW_LEFT.addEventListener('click', () => {
     let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach((item) => {
+        document.querySelectorAll('.slider-item').forEach(item => {
             if(item.style.left === '0px') {
                 clearInterval(interval);
                 return;
@@ -44,7 +45,7 @@ ARROW_LEFT.addEventListener('click', () => {
 
 ARROW_RIGHT.addEventListener('click', () => {
     let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach((item) => {
+        document.querySelectorAll('.slider-item').forEach(item => {
             if(item.style.left === '-940px') {
                 clearInterval(interval);
                 return;
@@ -55,3 +56,24 @@ ARROW_RIGHT.addEventListener('click', () => {
         });
     }, 5);
 });
+
+TAGS.addEventListener('click', (event) => {
+    TAGS.querySelectorAll('.tag').forEach(item => {
+        item.classList.remove('tag-active');
+    });
+
+    event.target.classList.add('tag-active');
+
+    if(event) {
+        document.querySelectorAll('.portfolio-item img').forEach(item => {
+            let random = getRandomInt(1, 13);
+            item.src = `assets/img/portfolio${random}.jpg`;
+        });
+    }
+});
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
