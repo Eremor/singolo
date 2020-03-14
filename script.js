@@ -24,7 +24,7 @@ MENU.addEventListener('click', (event) => {
             window.scrollTo(0, 2000);
             break;
         case "#contact":
-            window.scrollTo(0, 2800);
+            window.scrollTo(0, 2740);
             break;
     }
 });
