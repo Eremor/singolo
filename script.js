@@ -12,21 +12,34 @@ MENU.addEventListener('click', (event) => {
     let link = event.target.getAttribute('href');
     switch(link) {
         case "#slider":
-            window.scrollTo(0, 0);
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: 'smooth'});
             break;
         case "#services":
-            window.scrollTo(0, 630);
+            window.scrollTo({
+                left: 0,
+                top: 630,
+                behavior: 'smooth'});
             break;
         case "#portfolio":
-            window.scrollTo(0, 1130);
+            window.scrollTo({
+                left: 0,
+                top: 1130,
+                behavior: 'smooth'});
             break;
         case "#team":
-            window.scrollTo(0, 2000);
+            window.scrollTo({
+                left: 0,
+                top: 2000,
+                behavior: 'smooth'});
             break;
         case "#contact":
-            window.scrollTo({left: 0, 
-                             top: 2740, 
-                             behavior: 'smooth'});
+            window.scrollTo({
+                left: 0, 
+                top: 2740, 
+                behavior: 'smooth'});
             break;
     }
 });
