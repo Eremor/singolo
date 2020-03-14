@@ -293,6 +293,10 @@ a {
   left: 571px;
 }
 
+.phone-inactive {
+  opacity: 0;
+}
+
 .arrow {
   position: absolute;
   top: 281px;

@@ -24,7 +24,9 @@ MENU.addEventListener('click', (event) => {
             window.scrollTo(0, 2000);
             break;
         case "#contact":
-            window.scrollTo(0, 2740);
+            window.scrollTo({left: 0, 
+                             top: 2740, 
+                             behavior: 'smooth'});
             break;
     }
 });
@@ -55,6 +57,12 @@ ARROW_RIGHT.addEventListener('click', () => {
             item.style.left = `${counter}px`;
         });
     }, 5);
+});
+
+document.querySelectorAll('.phone').forEach(item => {
+    item.addEventListener('click', () => {
+        item.querySelector('.phone-img').classList.toggle('phone-inactive');
+    });
 });
 
 TAGS.addEventListener('click', (event) => {
