@@ -172,5 +172,7 @@ MODAL_BUTTON.addEventListener('click', (event) => {
         emailInput.value = '';
         subject.value = '';
         text.value = '';
+        userInput.classList.remove('invalid');
+        emailInput.classList.remove('invalid');
     }
 });
