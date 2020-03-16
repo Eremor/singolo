@@ -197,6 +197,12 @@ a {
   position: relative;
   width: 100%;
   flex-shrink: 0;
+
+  transition: 1s;
+}
+
+.slide-inactive {
+  display: none;
 }
 
 .phone-vertical {

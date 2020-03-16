@@ -1,12 +1,14 @@
 const MENU = document.querySelector('.main-nav');
 const TAGS = document.querySelector('.tag-list');
 const SLIDER = document.querySelector('.slider');
+const SLIDE_ITEM = document.querySelectorAll('.slider-item');
 const ARROW_LEFT = document.querySelector('.arrow-left');
 const ARROW_RIGHT = document.querySelector('.arrow-right');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
 
 let counter = 0;
 
+// Navigation
 MENU.addEventListener('click', (event) => {
     MENU.querySelectorAll('.main-nav-item').forEach(item => item.classList.remove('active-menu'));
     event.target.closest('li').classList.add('active-menu');
@@ -46,56 +48,36 @@ MENU.addEventListener('click', (event) => {
     }
 });
 
-ARROW_LEFT.addEventListener('click', () => {
-    let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach((item, index) => {
-            if(item.style.left === '0px') {
-                clearInterval(interval);
-                return;
-            }
-
-            if(index % 2 === 0) {
-                SLIDER.style.backgroundColor = '#648BF0'; 
-                SLIDER.style.borderBottom = '6px solid 3E6CE3';
-            } else {
-                SLIDER.style.backgroundColor = '#F06C64';
-                SLIDER.style.borderBottom = '6px solid EA676B';
-            }
-
-            counter += 1;
-            item.style.left = `${counter}px`;
-        });
-    }, 5);
-});
-
+// Slider
 ARROW_RIGHT.addEventListener('click', () => {
-    let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach((item, index) => {
-            if(item.style.left === '-940px') {
-                clearInterval(interval);
-                return;
-            }
-
-            if(index % 2 === 0) {
-                SLIDER.style.backgroundColor = '#648BF0'; 
-                SLIDER.style.borderBottom = '6px solid 3E6CE3';
-            } else {
-                SLIDER.style.backgroundColor = '#F06C64';
-                SLIDER.style.borderBottom = '6px solid EA676B';
-            }
-
-            counter -= 1;
-            item.style.left = `${counter}px`;
-        });
-    }, 5);
+    sliderScroll();
 });
 
+ARROW_LEFT.addEventListener('click', () => {
+    sliderScroll();
+});
+
+let sliderScroll = () => {
+    SLIDE_ITEM.forEach((item, index, arr) => {
+        item.classList.toggle('slide-inactive');
+        arr[index + 1].classList.toggle('slide-inactive');
+
+        if(item.classList.value == 'slider-item slide-inactive') {
+            SLIDER.style.backgroundColor = '#648BF0';
+        } else {
+            SLIDER.style.backgroundColor = '#F06C64';
+        }
+    });
+}
+
+// Active/inactive phones
 document.querySelectorAll('.phone').forEach(item => {
     item.addEventListener('click', () => {
         item.querySelector('.phone-img').classList.toggle('phone-inactive');
     });
 });
 
+// switch tags and images
 TAGS.addEventListener('click', (event) => {
     TAGS.querySelectorAll('.tag').forEach(item => {
         item.classList.remove('tag-active');
@@ -120,6 +102,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// Active/inactive portfolio images
 PORTFOLIO_ITEM.addEventListener('click', (event) => {
     PORTFOLIO_ITEM.querySelectorAll('.portfolio-item').forEach(item => {
         if(event.target.closest('.portfolio-item').classList.contains('portfolio-item')) {
