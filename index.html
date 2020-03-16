@@ -15,11 +15,11 @@
         <h1 class="visually-hidden">Singolo</h1>
         <nav class="main-nav">
           <ul>
-            <li class="main-nav-item"><a href="#">Home</a></li>
-            <li class="main-nav-item"><a href="#">Services</a></li>
-            <li class="main-nav-item"><a href="#">Portfolio</a></li>
-            <li class="main-nav-item"><a href="#">About</a></li>
-            <li class="main-nav-item"><a href="#">Contact</a></li>
+            <li class="main-nav-item active-menu"><a href="#slider">Home</a></li>
+            <li class="main-nav-item"><a href="#services">Services</a></li>
+            <li class="main-nav-item"><a href="#portfolio">Portfolio</a></li>
+            <li class="main-nav-item"><a href="#team">About</a></li>
+            <li class="main-nav-item"><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -28,21 +28,40 @@
     <main>
       <div class="slider">
         <div class="wrapper">
-          <div class="phone-vertical">
-            <div class="phone-base"></div>
-            <div class="phone-img"></div>
-            <div class="phone-shadow"></div>
+          <div class="slider-item">
+            <div class="phone phone-vertical">
+              <div class="phone-base"></div>
+              <div class="phone-img"></div>
+              <div class="phone-shadow"></div>
+            </div>
+            <div class="phone phone-horizontal">
+              <div class="phone-base"></div>
+              <div class="phone-img"></div>
+              <div class="phone-shadow"></div>
+            </div>
           </div>
-          <div class="phone-horizontal">
-            <div class="phone-base"></div>
-            <div class="phone-img"></div>
-            <div class="phone-shadow"></div>
+          <div class="slider-item">
+            <div class="phone phone-vertical phone-small">
+              <div class="phone-base"></div>
+              <div class="phone-img"></div>
+              <div class="phone-shadow"></div>
+            </div>
+            <div class="phone phone-vertical phone-filter">
+              <div class="phone-base"></div>
+              <div class="phone-img"></div>
+              <div class="phone-shadow"></div>
+            </div>
+            <div class="phone phone-vertical phone-small">
+              <div class="phone-base"></div>
+              <div class="phone-img"></div>
+              <div class="phone-shadow"></div>
+            </div>
           </div>
           <button class="arrow arrow-left"><span class="visually-hidden">Назад</span></button>
           <button class="arrow arrow-right"><span class="visually-hidden">Вперед</span></button>
         </div>
       </div>
-
+      
       <section class="services">
         <div class="wrapper">
           <h2 class="section-title">Our services</h2>
@@ -75,7 +94,7 @@
           </ul>
         </div>
       </section>
-
+      
       <section class="portfolio">
         <div class="wrapper">
           <h2 class="section-title">Portfolio</h2>
@@ -126,7 +145,7 @@
           </div>
         </div>
       </section>
-    
+      
       <section class="team">
         <div class="wrapper">
           <h2 class="section-title">About us</h2>
@@ -200,7 +219,6 @@
 
     <footer class="page-footer">
       <div class="wrapper">
-        <p class="footer-copyright">&copy; Copyright 2013 · by PSDchat.com</p>
         <ul class="footer-social social-list">
           <li class="social-item social-fb"><a href="#"><span class="visually-hidden">Facebook</span></a></li>
           <li class="social-item social-gp"><a href="#"><span class="visually-hidden">Google plus</span></a></li>
@@ -209,5 +227,14 @@
         </ul>
       </div>
     </footer>
+    <div class="modal">
+      <div class="modal-wrapper">
+        <h2 class="modal-title">The letter was sent</h2>
+        <p class="modal-subject"></p>
+        <p class="modal-text"></p>
+        <button class="modal-btn">Ok</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
