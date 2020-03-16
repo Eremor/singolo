@@ -74,8 +74,10 @@ let sliderScroll = () => {
 
 // Active/inactive phones
 document.querySelectorAll('.phone').forEach(item => {
-    item.addEventListener('click', () => {
-        item.querySelector('.phone-img').classList.toggle('phone-inactive');
+    item.addEventListener('click', (event) => {
+        if(event.target.classList.contains('phone-base')) {
+            item.querySelector('.phone-img').classList.toggle('phone-inactive');
+        }
     });
 });
 
