@@ -515,6 +515,8 @@ a {
   margin-bottom: 20px;
   width: 220px;
   height: 187px;
+
+  cursor: pointer;
 }
 
 .portfolio-item:nth-child(4n) {
