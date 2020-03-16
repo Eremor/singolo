@@ -5,6 +5,8 @@ const SLIDE_ITEM = document.querySelectorAll('.slider-item');
 const ARROW_LEFT = document.querySelector('.arrow-left');
 const ARROW_RIGHT = document.querySelector('.arrow-right');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
+const FORM_BUTTON = document.querySelector('.btn-submit');
+const MODAL_BUTTON = document.querySelector('.modal-btn');
 
 let counter = 0;
 
@@ -111,4 +113,58 @@ PORTFOLIO_ITEM.addEventListener('click', (event) => {
     });
 
     event.target.closest('.portfolio-item').classList.add('portfolio-active');
+});
+
+// Form
+let form = document.querySelector('form');
+let userInput = form.querySelector('#user-name');
+let emailInput = form.querySelector('#user-email');
+let subject = form.querySelector('#topic');
+let text = form.querySelector('textarea');
+let modal = document.querySelector('.modal');
+let modalSubject = modal.querySelector('.modal-subject');
+let modalText = modal.querySelector('.modal-text');
+
+FORM_BUTTON.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let isValid = form.checkValidity();
+    let userValid = /^[a-zA-Z]*$/;
+    let emailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if(isValid) {
+        if(event.target) {
+            modal.classList.add('modal-active');
+
+            if(subject.value == '') {
+                modalSubject.textContent = 'Without subject';
+            } else {
+                modalSubject.textContent = 'Subject: ' + subject.value;
+            }
+
+            if(text.value == '') {
+                modalText.textContent = 'Without description';
+            } else {
+                modalText.textContent = 'Description: ' + text.value;
+            }
+        }
+    } else {
+        userInput.value == '' || userValid.test(userInput.value)
+            ? userInput.classList.add('invalid')
+            : userInput.classList.remove('invalid');
+
+        emailInput.value == '' || !emailValid.test(emailInput.value)
+            ? emailInput.classList.add('invalid')
+            : emailInput.classList.remove('invalid');
+    }
+});
+
+MODAL_BUTTON.addEventListener('click', (event) => {
+    if(event.target) {
+        modal.classList.remove('modal-active');
+        userInput.value = '';
+        emailInput.value = '';
+        subject.value = '';
+        text.value = '';
+    }
 });
