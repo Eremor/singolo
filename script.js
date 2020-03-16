@@ -2,6 +2,7 @@ const MENU = document.querySelector('.main-nav');
 const TAGS = document.querySelector('.tag-list');
 const ARROW_LEFT = document.querySelector('.arrow-left');
 const ARROW_RIGHT = document.querySelector('.arrow-right');
+const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
 
 let counter = 0;
 
@@ -60,7 +61,7 @@ ARROW_LEFT.addEventListener('click', () => {
 
 ARROW_RIGHT.addEventListener('click', () => {
     let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach(item => {
+        document.querySelectorAll('.slider-item').forEach((item, index) => {
             if(item.style.left === '-940px') {
                 clearInterval(interval);
                 return;
@@ -101,3 +102,13 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+PORTFOLIO_ITEM.addEventListener('click', (event) => {
+    PORTFOLIO_ITEM.querySelectorAll('.portfolio-item').forEach(item => {
+        if(event.target.closest('.portfolio-item').classList.contains('portfolio-item')) {
+            item.classList.remove('portfolio-active');
+        }
+    });
+
+    event.target.closest('.portfolio-item').classList.add('portfolio-active');
+});

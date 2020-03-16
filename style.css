@@ -504,6 +504,7 @@ a {
 }
 
 .portfolio-item {
+  position: relative;
   margin-right: 20px;
   margin-bottom: 20px;
   width: 220px;
@@ -512,6 +513,17 @@ a {
 
 .portfolio-item:nth-child(4n) {
   margin-right: 0;
+}
+
+.portfolio-active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 210px;
+  height: 177px;
+
+  border: 5px solid #F06C64;
 }
 
 .team {
