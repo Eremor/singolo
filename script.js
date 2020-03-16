@@ -1,5 +1,6 @@
 const MENU = document.querySelector('.main-nav');
 const TAGS = document.querySelector('.tag-list');
+const SLIDER = document.querySelector('.slider');
 const ARROW_LEFT = document.querySelector('.arrow-left');
 const ARROW_RIGHT = document.querySelector('.arrow-right');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
@@ -47,10 +48,18 @@ MENU.addEventListener('click', (event) => {
 
 ARROW_LEFT.addEventListener('click', () => {
     let interval = setInterval(() => {
-        document.querySelectorAll('.slider-item').forEach(item => {
+        document.querySelectorAll('.slider-item').forEach((item, index) => {
             if(item.style.left === '0px') {
                 clearInterval(interval);
                 return;
+            }
+
+            if(index % 2 === 0) {
+                SLIDER.style.backgroundColor = '#648BF0'; 
+                SLIDER.style.borderBottom = '6px solid 3E6CE3';
+            } else {
+                SLIDER.style.backgroundColor = '#F06C64';
+                SLIDER.style.borderBottom = '6px solid EA676B';
             }
 
             counter += 1;
@@ -65,6 +74,14 @@ ARROW_RIGHT.addEventListener('click', () => {
             if(item.style.left === '-940px') {
                 clearInterval(interval);
                 return;
+            }
+
+            if(index % 2 === 0) {
+                SLIDER.style.backgroundColor = '#648BF0'; 
+                SLIDER.style.borderBottom = '6px solid 3E6CE3';
+            } else {
+                SLIDER.style.backgroundColor = '#F06C64';
+                SLIDER.style.borderBottom = '6px solid EA676B';
             }
 
             counter -= 1;
