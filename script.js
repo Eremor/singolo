@@ -84,12 +84,16 @@ document.querySelectorAll('.phone').forEach(item => {
 // switch tags and images
 TAGS.addEventListener('click', (event) => {
     TAGS.querySelectorAll('.tag').forEach(item => {
-        item.classList.remove('tag-active');
+        if(event.target.classList.contains('tag')) {
+            item.classList.remove('tag-active');
+        }
     });
 
-    event.target.classList.add('tag-active');
+    if(event.target.classList.contains('tag')) {
+        event.target.classList.add('tag-active');
+    }
 
-    if(event) {
+    if(event.target.classList.contains('tag')) {
         let random = getRandomInt(1, 13);
         let index = random;
 
