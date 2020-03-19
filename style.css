@@ -189,20 +189,68 @@ a {
   position: relative;
   display: flex;
   min-height: 594px;
+}
 
+.slide-container {
+  position: relative;
+  width: 100%;
+  
   overflow: hidden;
 }
 
-.slider-item {
-  position: relative;
+.slide-item {
+  position: absolute;
+  display: none;
   width: 100%;
-  flex-shrink: 0;
 
-  transition: 1s;
+  animation: 1s ease-in-out;
 }
 
-.slide-inactive {
-  display: none;
+.slide-active,
+.next-slide {
+  display: block;
+}
+
+.next-slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.move-left {
+  animation-name: left;
+}
+
+.move-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
 }
 
 .phone-vertical {
@@ -273,7 +321,7 @@ a {
   transform: rotateY(180deg);
 }
 
-.slider-item:nth-child(2) .phone-vertical {
+.slide-item:nth-child(2) .phone-vertical {
   left: 343px;
   top: 43px;
 
@@ -284,18 +332,18 @@ a {
   background-image: url("assets/img/phone-bg3.jpg");
 }
 
-.slider-item:nth-child(2) .phone-small {
+.slide-item:nth-child(2) .phone-small {
   top: 152px;
 
   transform: scale(0.65);
   opacity: 0.5;
 }
 
-.slider-item:nth-child(2) .phone-small:first-child {
+.slide-item:nth-child(2) .phone-small:first-child {
   left: 213px;
 }
 
-.slider-item:nth-child(2) .phone-small:last-child {
+.slide-item:nth-child(2) .phone-small:last-child {
   left: 571px;
 }
 

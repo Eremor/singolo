@@ -1,9 +1,6 @@
 const MENU = document.querySelector('.main-nav');
 const TAGS = document.querySelector('.tag-list');
-const SLIDER = document.querySelector('.slider');
-const SLIDE_ITEM = document.querySelectorAll('.slider-item');
-const ARROW_LEFT = document.querySelector('.arrow-left');
-const ARROW_RIGHT = document.querySelector('.arrow-right');
+const SLIDER = document.querySelector('.slide');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
 const FORM_BUTTON = document.querySelector('.btn-submit');
 const MODAL_BUTTON = document.querySelector('.modal-btn');
@@ -51,26 +48,54 @@ MENU.addEventListener('click', (event) => {
 });
 
 // Slider
-ARROW_RIGHT.addEventListener('click', () => {
-    sliderScroll();
-});
+let currentItem = 0;
+let isEnabled = true;
+let slideItems = document.querySelectorAll('.slide-item');
 
-ARROW_LEFT.addEventListener('click', () => {
-    sliderScroll();
-});
+function changeCurrentItem(n) {
+    currentItem = (n + slideItems.length) % slideItems.length;
+}
 
-let sliderScroll = () => {
-    SLIDE_ITEM.forEach((item, index, arr) => {
-        item.classList.toggle('slide-inactive');
-        arr[index + 1].classList.toggle('slide-inactive');
-
-        if(item.classList.value == 'slider-item slide-inactive') {
-            SLIDER.style.backgroundColor = '#648BF0';
-        } else {
-            SLIDER.style.backgroundColor = '#F06C64';
-        }
+function hideSlide(direction) {
+    isEnabled = false;
+    slideItems[currentItem].classList.add(direction);
+    slideItems[currentItem].addEventListener('animationend', function() {
+        this.classList.remove('slide-active', direction);
     });
 }
+
+function showSlide(direction) {
+    slideItems[currentItem].classList.add('next-slide', direction);
+    slideItems[currentItem].addEventListener('animationend', function() {
+        this.classList.remove('next-slide', direction);
+        this.classList.add('slide-active');
+        isEnabled = true;
+    });
+}
+
+function prevSlide(slide) {
+    hideSlide('move-right');
+    changeCurrentItem(slide - 1);
+    showSlide('from-left');
+}
+
+function nextSlide(slide) {
+    hideSlide('move-left');
+    changeCurrentItem(slide - 1);
+    showSlide('from-right');
+}
+
+document.querySelector('.arrow-left').addEventListener('click', function() {
+    if(isEnabled) {
+        prevSlide(currentItem);
+    }
+});
+
+document.querySelector('.arrow-right').addEventListener('click', function() {
+    if(isEnabled) {
+        nextSlide(currentItem);
+    }
+});
 
 // Active/inactive phones
 document.querySelectorAll('.phone').forEach(item => {
