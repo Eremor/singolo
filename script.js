@@ -13,37 +13,55 @@ MENU.addEventListener('click', (event) => {
     event.target.closest('li').classList.add('active-menu');
 
     let link = event.target.getAttribute('href');
+    
     switch(link) {
-        case "#slider":
+        case '#slider':
             window.scrollTo({
                 left: 0,
                 top: 0,
                 behavior: 'smooth'});
             break;
-        case "#services":
+        case '#services':
             window.scrollTo({
                 left: 0,
-                top: 630,
+                top: 650,
                 behavior: 'smooth'});
             break;
-        case "#portfolio":
+        case '#portfolio':
             window.scrollTo({
                 left: 0,
-                top: 1130,
+                top: 1150,
                 behavior: 'smooth'});
             break;
-        case "#team":
+        case '#team':
             window.scrollTo({
                 left: 0,
-                top: 2000,
+                top: 2019,
                 behavior: 'smooth'});
             break;
-        case "#contact":
+        case '#contact':
             window.scrollTo({
                 left: 0, 
-                top: 2740, 
+                top: 2851, 
                 behavior: 'smooth'});
             break;
+    }
+});
+
+window.addEventListener('scroll', () => {   
+    MENU.querySelectorAll('.main-nav-item').forEach(item => item.classList.remove('active-menu'));
+    let yOffset = window.pageYOffset;
+    console.log(yOffset);
+    if(yOffset >= 0 && yOffset < 600) {
+        document.querySelector('.main-nav-item:first-child').classList.add('active-menu');
+    } else if(yOffset >= 600 && yOffset < 1100) {
+        document.querySelector('.main-nav-item:nth-child(2)').classList.add('active-menu');
+    } else if(yOffset >= 1100 && yOffset < 1969) {
+        document.querySelector('.main-nav-item:nth-child(3)').classList.add('active-menu');
+    } else if(yOffset >= 1969 && yOffset < 2801) {
+        document.querySelector('.main-nav-item:nth-child(4)').classList.add('active-menu');
+    } else if(yOffset > 2801) {
+        document.querySelector('.main-nav-item:last-child').classList.add('active-menu');
     }
 });
 
