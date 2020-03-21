@@ -1,9 +1,6 @@
 const MENU = document.querySelector('.main-nav');
 const TAGS = document.querySelector('.tag-list');
 const SLIDER = document.querySelector('.slider');
-const SLIDE_ITEM = document.querySelectorAll('.slider-item');
-const ARROW_LEFT = document.querySelector('.arrow-left');
-const ARROW_RIGHT = document.querySelector('.arrow-right');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
 const FORM_BUTTON = document.querySelector('.btn-submit');
 const MODAL_BUTTON = document.querySelector('.modal-btn');
@@ -16,61 +13,116 @@ MENU.addEventListener('click', (event) => {
     event.target.closest('li').classList.add('active-menu');
 
     let link = event.target.getAttribute('href');
+    
     switch(link) {
-        case "#slider":
+        case '#slider':
             window.scrollTo({
                 left: 0,
                 top: 0,
                 behavior: 'smooth'});
             break;
-        case "#services":
+        case '#services':
             window.scrollTo({
                 left: 0,
-                top: 630,
+                top: 650,
                 behavior: 'smooth'});
             break;
-        case "#portfolio":
+        case '#portfolio':
             window.scrollTo({
                 left: 0,
-                top: 1130,
+                top: 1150,
                 behavior: 'smooth'});
             break;
-        case "#team":
+        case '#team':
             window.scrollTo({
                 left: 0,
-                top: 2000,
+                top: 2019,
                 behavior: 'smooth'});
             break;
-        case "#contact":
+        case '#contact':
             window.scrollTo({
                 left: 0, 
-                top: 2740, 
+                top: 2751, 
                 behavior: 'smooth'});
             break;
     }
 });
 
+window.addEventListener('scroll', () => {   
+    MENU.querySelectorAll('.main-nav-item').forEach(item => item.classList.remove('active-menu'));
+    let yOffset = window.pageYOffset;
+    if(yOffset >= 0 && yOffset < 600) {
+        document.querySelector('.main-nav-item:first-child').classList.add('active-menu');
+    } else if(yOffset >= 600 && yOffset < 1100) {
+        document.querySelector('.main-nav-item:nth-child(2)').classList.add('active-menu');
+    } else if(yOffset >= 1100 && yOffset < 1969) {
+        document.querySelector('.main-nav-item:nth-child(3)').classList.add('active-menu');
+    } else if(yOffset >= 1969 && yOffset < 2701) {
+        document.querySelector('.main-nav-item:nth-child(4)').classList.add('active-menu');
+    } else if(yOffset >= 2701) {
+        document.querySelector('.main-nav-item:last-child').classList.add('active-menu');
+    }
+});
+
 // Slider
-ARROW_RIGHT.addEventListener('click', () => {
-    sliderScroll();
-});
+let currentItem = 0;
+let isEnabled = true;
+let slideItems = document.querySelectorAll('.slide-item');
 
-ARROW_LEFT.addEventListener('click', () => {
-    sliderScroll();
-});
+function changeCurrentItem(n) {
+    currentItem = (n + slideItems.length) % slideItems.length;
 
-let sliderScroll = () => {
-    SLIDE_ITEM.forEach((item, index, arr) => {
-        item.classList.toggle('slide-inactive');
-        arr[index + 1].classList.toggle('slide-inactive');
-
-        if(item.classList.value == 'slider-item slide-inactive') {
+    setTimeout(() => {
+        if(currentItem % 2 != 0) {
             SLIDER.style.backgroundColor = '#648BF0';
+            SLIDER.style.borderBottomColor = '#779CFE';
         } else {
             SLIDER.style.backgroundColor = '#F06C64';
+            SLIDER.style.borderBottomColor = '#EA676B';
         }
+    },500);
+}
+
+function hideSlide(direction) {
+    isEnabled = false;
+    slideItems[currentItem].classList.add(direction);
+    slideItems[currentItem].addEventListener('animationend', function() {
+        this.classList.remove('slide-active', direction);
     });
 }
+
+function showSlide(direction) {
+    slideItems[currentItem].classList.add('next-slide', direction);
+    slideItems[currentItem].addEventListener('animationend', function() {
+        this.classList.remove('next-slide', direction);
+        this.classList.add('slide-active');
+        isEnabled = true;
+    });
+}
+
+function prevSlide(slide) {
+    hideSlide('move-right');
+    changeCurrentItem(slide - 1);
+    showSlide('from-left');
+}
+
+function nextSlide(slide) {
+    hideSlide('move-left');
+    changeCurrentItem(slide - 1);
+    showSlide('from-right');
+}
+
+document.querySelector('.arrow-left').addEventListener('click', function() {
+    if(isEnabled) {
+        prevSlide(currentItem);
+    }
+});
+
+document.querySelector('.arrow-right').addEventListener('click', function() {
+    if(isEnabled) {
+        nextSlide(currentItem);
+    }
+});
 
 // Active/inactive phones
 document.querySelectorAll('.phone').forEach(item => {
