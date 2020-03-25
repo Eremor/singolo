@@ -990,6 +990,11 @@ a {
     max-width: 687px;
   }
 
+  .section-description {
+    text-align: left;
+    letter-spacing: 0;
+  }
+
   .main-nav {
     padding-top: 36px;
   }
@@ -1042,6 +1047,24 @@ a {
 
   .arrow-right {
     right: -2%;
+  }
+
+  .services .wrapper {
+    padding-top: 50px;
+  }
+
+  .services-list {
+    margin-top: 38px;
+    justify-content: space-between;
+  }
+
+  .services-item {
+    margin-right: 0;
+    margin-bottom: 53px;
+  }
+
+  .services-item:nth-child(2) {
+    margin-right: 0;
   }
 
   .quote-form {
