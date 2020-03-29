@@ -4,12 +4,16 @@ const SLIDER = document.querySelector('.slider');
 const PORTFOLIO_ITEM = document.querySelector('.portfolio-list');
 const FORM_BUTTON = document.querySelector('.btn-submit');
 const MODAL_BUTTON = document.querySelector('.modal-btn');
+let BURGER = document.querySelector('.burger-btn');
 
 let counter = 0;
 
 // Navigation
 MENU.addEventListener('click', (event) => {
-    MENU.querySelectorAll('.main-nav-item').forEach(item => item.classList.remove('active-menu'));
+    MENU.querySelectorAll('.main-nav-item').forEach(item => {
+        item.classList.remove('active-menu');
+        closeBurgerMenu();
+    });
     event.target.closest('li').classList.add('active-menu');
 
     let link = event.target.getAttribute('href');
@@ -151,9 +155,14 @@ TAGS.addEventListener('click', (event) => {
 
         document.querySelectorAll('.portfolio-item img').forEach(item => {
             item.src = `assets/img/portfolio${index}.jpg`;
+            item.alt = `Portfolio image ${index}`;
             index == 12 ? index = 1 : index++ ;
         });
     }
+
+    PORTFOLIO_ITEM.querySelectorAll('.portfolio-item').forEach(item => {
+        item.classList.remove('portfolio-active');
+    });
 });
 
 function getRandomInt(min, max) {
@@ -228,3 +237,18 @@ MODAL_BUTTON.addEventListener('click', (event) => {
         emailInput.classList.remove('invalid');
     }
 });
+
+//Burger menu
+
+
+BURGER.addEventListener('click', (event) => {
+    BURGER.classList.toggle('burger-open');
+    MENU.classList.toggle('open-menu');
+    document.querySelector('.header-logo').classList.toggle('open-menu-logo');
+});
+
+function closeBurgerMenu() {
+    BURGER.classList.remove('burger-open');
+    MENU.classList.remove('open-menu');
+    document.querySelector('.header-logo').classList.remove('open-menu-logo');
+}
